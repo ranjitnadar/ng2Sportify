@@ -1,3 +1,34 @@
-<p>
-  search works!
-</p>
+<div class="container">	
+		<h1>Need Music?</h1>
+		<p>
+			ng2Spotify Powerd by Spotify API gives you instant access to millions of songs – from old favorites to the latest hits.
+			<br> Just hit play to stream anything you like.
+		</p>
+
+		<form action="">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="Search Artist..." [(ngModel)]="searchArtist" (keyup)="searchMusic()" name="searchArtist">
+			</div>
+		</form>
+
+		<div *ngIf="searchArtistRes"  class="grid">
+			<div *ngFor="let artist of searchArtistRes" class="grid-item">
+				
+				<div class="col-md-3" >
+					<div class="search-res well">
+						<h4>{{artist.name}}</h4>
+						<div>
+							
+							<!-- <div *ngFor="let image of artist.images">
+								{{image}}
+							</div> -->
+							<strong *ngIf="artist.genres != '' ">Genres:</strong>
+							<span *ngFor="let genre of artist.genres">
+								{{genre}}
+							</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+</div>
