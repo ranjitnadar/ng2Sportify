@@ -15,6 +15,7 @@ export class ArtistComponent implements OnInit {
 	id: string;
 	artist: Artist[];
 	albums: Album[];
+	
 	constructor(private _spotifyService:SpotifyService, private _route:ActivatedRoute) {
 			
 	}
@@ -31,9 +32,9 @@ export class ArtistComponent implements OnInit {
 					})
 
 				this._spotifyService.getAlbums(id)
-					.subscribe(album => {
-						//console.log(album);
-						this.albums = album;
+					.subscribe(albums => {
+						//console.log(albums.items);
+						this.albums = albums.items;
 					})
 			});
 	}

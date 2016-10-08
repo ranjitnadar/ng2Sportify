@@ -1,4 +1,22 @@
+.artist-info{
+	display: flex;
+	padding-bottom:25px;
+	border-bottom: 2px solid rgba(109, 109, 109, 0.13);
+}
 .artist-thumb{
 	width:150px;
 	height: 150px;
 }
+.artist-albums{
+	padding-top:25px;
+}
+.album{
+
+}
+.album-thumb{
+
+}
+.album h4{
+	font-size:16px;
+}
+

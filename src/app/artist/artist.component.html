@@ -1,5 +1,5 @@
 <div class="container" *ngIf="artist">
-	<header>
+	<header class="artist-info">
 		<div *ngIf="artist.images.length > 0 " class="col-sm-4">
 			<img class="artist-thumb img-circle" src="{{artist.images[0].url}}" alt="">
 			
@@ -11,13 +11,23 @@
 			</p>
 		</div>
 	</header>
-
+	<div class="clearfix"></div>
 	<div class="artist-albums">
-		<div class="row">
+		<masonry class="row">
 			
-			<div *ngFor="let album of albums">
-				{{album |  json}}
-			</div>
-		</div>
+			<masonry-brick *ngFor="let album of albums" class="col-md-4">
+					<a routerLink="/album/{{album.id}}">
+						<div class="well album">
+							<div *ngIf="album.images.length > 0">
+	                            <img class="album-thumb img-thumbnail" src="{{album.images[0].url}}">    
+	                            <h4>{{album.name}}</h4>
+	                            <a class="btn btn-default btn-block" routerLink="/album/{{album.id}}">Album Details</a>
+	                        </div> 
+						</div>
+					</a>
+					
+				
+			</masonry-brick>
+		</masonry>
 	</div>
 </div>
