@@ -11,12 +11,13 @@ import { AboutComponent } from './about/about.component';
 
 
 import {SpotifyService} from './spotify.service';
+import { ArtistComponent } from './artist/artist.component';
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
     NavbarComponent,
-    AboutComponent
+    AboutComponent, ArtistComponent
   ],
   imports: [
     BrowserModule,

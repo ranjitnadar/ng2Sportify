@@ -12,23 +12,23 @@
 		</form>
 
 		<div *ngIf="searchArtistRes"  class="grid">
-			<div *ngFor="let artist of searchArtistRes" class="grid-item">
+			<div *ngFor="let artist of searchArtistRes" class="grid-item col-sm-3">
 				
-				<div class="col-md-3" >
 					<div class="search-res well">
-						<h4>{{artist.name}}</h4>
-						<div>
-							
-							<!-- <div *ngFor="let image of artist.images">
-								{{image}}
-							</div> -->
-							<strong *ngIf="artist.genres != '' ">Genres:</strong>
-							<span *ngFor="let genre of artist.genres">
-								{{genre}}
-							</span>
+						<h4>
+							<a routerLink="/artist/{{artist.id}}">{{artist.name}}</a>
+						</h4>
+						<div *ngFor="let image of artist.images; let i = index ">
+							<img *ngIf="i == 1 " src="{{image.url}}" alt="" class="img-responsive">
 						</div>
+						<div *ngIf="(artist.genres | json) != '[]'">
+							<h6>Genres:</h6>
+							<span *ngFor="let genres of artist.genres">
+								{{genres}}
+							</span>
+						</div>	
 					</div>
-				</div>
+				
 			</div>
 		</div>
 </div>
